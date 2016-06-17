@@ -1,0 +1,18 @@
+{
+  "name": "rerx",
+  "version": "0.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rerx/rerx.git"
+  },
+  "author": "Jas Chen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rerx/rerx/issues"
+  },
+  "homepage": "https://github.com/rerx/rerx#readme"
+}
