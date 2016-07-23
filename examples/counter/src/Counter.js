@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
-import { DOM } from 'rerx/DOM';
-import { helper, replayDistinct } from 'rerx/utils';
 import { select, dispatch, willMount, willUnmount } from 'rerx/core';
+import { DOM } from 'rerx/component';
+import { helper, replayDistinct } from 'rerx/utils';
 import { Observable } from 'rxjs/Rx';
 
 const { Span } = DOM;
