@@ -1,0 +1,7 @@
+{
+  "env": {
+    "test": {
+      "plugins": ["transform-react-jsx", "transform-function-bind", "transform-es2015-modules-commonjs"]
+    }
+  }
+}
