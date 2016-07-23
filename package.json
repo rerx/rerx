@@ -1,6 +1,6 @@
 {
   "name": "rerx",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Reactive React with RxJS",
   "scripts": {
     "clean": "rimraf core component utils",
