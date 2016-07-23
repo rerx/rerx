@@ -1,4 +1,6 @@
-# Counter example
+# Counter-3
+
+Central application state.
 
 ```
 npm install
