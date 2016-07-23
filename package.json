@@ -3,7 +3,7 @@
   "version": "0.2.0",
   "description": "Reactive React with RxJS",
   "scripts": {
-    "clean": "rimraf core createReactiveComponent DOM utils",
+    "clean": "rimraf core component utils",
     "test": "BABEL_ENV=test ava --verbose",
     "build": "npm run clean && webpack --display-modules --progress",
     "prepublish": "npm run clean && npm run build"
@@ -14,8 +14,7 @@
   },
   "files": [
     "core",
-    "createReactiveComponent",
-    "DOM",
+    "component",
     "utils",
     "src"
   ],

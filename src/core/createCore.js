@@ -4,8 +4,8 @@ import { startWith } from 'rxjs/operator/startWith';
 import { scan } from 'rxjs/operator/scan';
 import { publishReplay } from 'rxjs/operator/publishReplay';
 import { createSelect } from './createSelect';
-import { isBrowser } from './isBrowser';
-import { noop } from './noop';
+import { isBrowser } from '../utils/isBrowser';
+import { noop } from '../utils/noop';
 
 function createComponentStream(mountEvent) {
   const components$ = mountEvent

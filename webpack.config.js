@@ -13,10 +13,9 @@ module.exports = {
   context: src,
   devtool: 'source-map',
   entry: {
-    core: [ './core.js' ],
-    createReactiveComponent: [ './createReactiveComponent.js' ],
-    DOM: [ './DOM.js' ],
-    utils: [ './utils.js' ]
+    core: [ './core' ],
+    component: [ './component' ],
+    utils: [ './utils' ]
   },
   output: {
     filename: '[name]/index.js',

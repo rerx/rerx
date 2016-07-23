@@ -1,4 +1,4 @@
-import { isBrowser } from './isBrowser';
+import { isBrowser } from '../utils/isBrowser';
 import { Component, createElement } from 'react';
 
 function isObservableProp(propName) {
