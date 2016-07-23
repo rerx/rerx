@@ -8,23 +8,23 @@ import { mergeMap } from 'rxjs/operator/mergeMap';
 import { distinctUntilChanged } from 'rxjs/operator/distinctUntilChanged';
 
 function matchClassName(className) {
-  return e => {
-    if (!e.target.props.className) {
+  return component => {
+    if (!component.props.className) {
       return false;
     }
 
-    const propsClassNames = e.target.props.className.split(/\s+/);
+    const propsClassNames = component.props.className.split(/\s+/);
     return propsClassNames.indexOf(className) !== -1;
   };
 }
 
 function matchId(id) {
-  return e => {
-    if (!e.target.props.id) {
+  return component => {
+    if (!component.props.id) {
       return false;
     }
 
-    return e.target.props.id.trim() === id;
+    return component.props.id === id;
   };
 }
 
@@ -63,7 +63,7 @@ export function createSelect(components$, event$) {
             return;
           }
 
-          match = e => e.target === this.refs[selectTarget];
+          match = component => component === this.refs[selectTarget];
         } else {
           console.error(`Unknown select pattern: ${pattern}.`);
           return;
@@ -76,7 +76,7 @@ export function createSelect(components$, event$) {
             }
 
             return result;
-          }), []);
+          }, []));
       }
     } else if (pattern instanceof Component) {
       matchedComponents$ = components$

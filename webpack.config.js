@@ -13,15 +13,13 @@ module.exports = {
   context: src,
   devtool: 'source-map',
   entry: {
-    index: [ './index.js' ],
     core: [ './core.js' ],
     createReactiveComponent: [ './createReactiveComponent.js' ],
     DOM: [ './DOM.js' ],
     utils: [ './utils.js' ]
   },
   output: {
-    path: 'lib',
-    filename: '[name].js',
+    filename: '[name]/index.js',
     library: 'Rerx',
     libraryTarget: 'commonjs2'
   },

@@ -4,7 +4,7 @@
   "description": "Reactive React with RxJS",
   "main": "lib/index.js",
   "scripts": {
-    "clean": "rimraf lib",
+    "clean": "rimraf core createReactiveComponent DOM utils",
     "test": "BABEL_ENV=test ava --verbose",
     "build": "npm run clean && webpack --display-modules --progress",
     "prepublish": "npm run clean && npm run build"
@@ -14,7 +14,10 @@
     "url": "git+https://github.com/rerx/rerx.git"
   },
   "files": [
-    "lib",
+    "core",
+    "createReactiveComponent",
+    "DOM",
+    "utils",
     "src"
   ],
   "author": "Jas Chen",

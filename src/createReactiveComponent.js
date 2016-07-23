@@ -45,7 +45,7 @@ export function createReactiveComponent(tag) {
 
       this._subscriptions = [];
 
-      names.forEach(function subscribe(name) {
+      names.forEach(name => {
         const observable = this._observables[name];
         const subscription = observable.subscribe(nextState => {
           const curState = this.state[name];
