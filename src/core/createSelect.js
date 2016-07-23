@@ -57,13 +57,6 @@ export function createSelect(components$, event$) {
         } else if (prefix === '#') {
           match = matchId(selectTarget);
           isCacheable = true;
-        } else if (prefix === '@') {
-          if (!this) {
-            console.error('You have to bind the component to `select()` before using it.');
-            return;
-          }
-
-          match = component => component === this.refs[selectTarget];
         } else {
           console.error(`Unknown select pattern: ${pattern}.`);
           return;
