@@ -10,7 +10,7 @@ export class Counter extends Component {
   constructor(props) {
     super(props);
 
-    // Match if event is dispatched by this component (e.target === this).
+    // Match the events dispatched by this component (e.target === this).
     const thisEvent = helper.thisEvent.bind(this);
 
 
@@ -63,6 +63,8 @@ export class Counter extends Component {
     });
   }
 
+
+  // Make this component selectable
   componentWillMount() {
     willMount(this);
   }
