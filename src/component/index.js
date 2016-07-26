@@ -1,2 +1,2 @@
 export * from './DOM';
-export * from './createReactiveComponent';
+export * from './reactive';

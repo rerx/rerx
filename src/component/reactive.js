@@ -1,11 +1,16 @@
-import { isBrowser } from '../utils/isBrowser';
 import { Component, createElement } from 'react';
+import { Observable } from 'rxjs/Rx';
+import { isBrowser } from '../utils/isBrowser';
 
 function isObservableProp(propName) {
   return propName.charAt(propName.length - 1) === '$';
 }
 
-export function createReactiveComponent(tag) {
+function isDOMtag(tag) {
+  return tag.charCodeAt(0) >= 97;
+}
+
+export function reactive(tag) {
   class ReactiveComponent extends Component {
     constructor(props) {
       super(props);
@@ -22,7 +27,7 @@ export function createReactiveComponent(tag) {
 
         if (isObservableProp(propName)) {
           if (isBrowser && propValue) {
-            if (typeof propValue.subscribe !== 'function') {
+            if (!(propValue instanceof Observable)) {
               console.error(`Prop \`${propName}\` is not observable.`);
               return;
             }
@@ -30,6 +35,18 @@ export function createReactiveComponent(tag) {
             const stateName = propName.substr(0, propName.length - 1);
             this._observables[stateName] = propValue;
           }
+        } else if (isDOMtag(tag) && typeof propValue === 'function' && propValue.length > 1) {
+          this.state[propName] = e => {
+            propValue(e, this);
+          };
+
+          if (!this.event) {
+            this.event = {};
+          }
+
+          // onClick -> click
+          const eventType = propName.substr(2).toLowerCase();
+          this.event[eventType] = e => e.target === this && e.type === eventType;
         } else {
           this.state[propName] = propValue;
         }

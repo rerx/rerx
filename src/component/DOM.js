@@ -1,8 +1,21 @@
 import React from 'react';
-import { createReactiveComponent } from './createReactiveComponent';
+import { reactive } from './reactive';
 
-export const DOM = Object.keys(React.DOM).reduce((result, tag) => {
+export const DOM = {};
+
+Object.keys(React.DOM).forEach(tag => {
   const name = tag.charAt(0).toUpperCase() + tag.substr(1);
-  result[name] = createReactiveComponent(tag);
-  return result;
-}, {});
+  const get = (function() {
+    let component;
+
+    return () => {
+      if (!component) {
+        component = reactive(tag);
+      }
+
+      return component;
+    }
+  })();
+
+  Object.defineProperty(DOM, name, { get });
+});

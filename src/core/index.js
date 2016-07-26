@@ -10,12 +10,12 @@ export function dispatch() {
   core.dispatch.apply(this, arguments);
 }
 
-export function willMount() {
-  core.willMount.apply(this, arguments);
+export function mount() {
+  core.mount.apply(this, arguments);
 }
 
-export function willUnmount() {
-  core.willUnmount.apply(this, arguments);
+export function unmount() {
+  core.unmount.apply(this, arguments);
 }
 
 export function getEventStream() {

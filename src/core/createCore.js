@@ -11,15 +11,12 @@ function createComponentStream(mountEvent) {
   const components$ = mountEvent
     ::startWith([])
     ::scan(function handleMountEvent(components, e) {
-      const newComponents = [].concat(components);
-
       if (e.mount) {
-        newComponents.push(e.component);
-      } else {
-        newComponents.splice(newComponents.indexOf(e.component), 1);
+        return components.concat([e.component]);
       }
 
-      return newComponents;
+      // immutable array
+      return [].concat(components).splice(components.indexOf(e.component), 1);
     })
     ::publishReplay(1);
 
@@ -37,13 +34,13 @@ export function createCore() {
   return {
     event$,
     components$,
-    willMount: component => {
+    mount: component => {
       mountEvent.next({
         component,
         mount: true
       });
     },
-    willUnmount: component => {
+    unmount: component => {
       mountEvent.next({
         component,
         mount: false
